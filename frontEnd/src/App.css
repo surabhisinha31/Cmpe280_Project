@@ -1,0 +1,514 @@
+/* body *{
+    font: inherit;
+} */
+
+/* LANDING PAGE 2 CSS */
+/* .homepage .navbarContainer{
+    display: none;
+} */
+
+.bg-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url("https://odis.homeaway.com/odis/homepage/644873f3-544d-4bfb-b19b-a673308b7373.hp-lg-loader.jpg")
+        center center no-repeat;
+    background-size: cover;
+    /*margin-top:-80px;*/
+  }
+
+  .hideNavbar {
+        margin-bottom: 0%;
+    }
+
+    .dummyListProperty{
+        height: 100%;
+        width: 100%;
+        padding:5% 0px 5% 0px;
+    }
+
+  .landingPageNavbar {
+    overflow: auto;
+    background: none;
+    padding: 25px 20px;
+  }
+
+  .whiteText{
+      color:white;
+  }
+
+  .landingPageBody{
+      padding:0px 10% 150px 20%;  
+  }
+
+  .landingPageDesc{
+      margin:0% 0% 0% 10%
+  }
+
+  .floatRight {
+    float: right;
+  }
+  .floatLeft {
+    float: Left;
+  }
+  .listYourProperty{
+    padding:13px 40px 13px 40px;
+    border-radius: 100px;
+    font-size:14px;
+    color:#0067db;
+  }
+  
+  .footer_listprop{
+      padding:40px;
+      background-color: #f4f4f4;
+  }
+
+  .loginList{
+    padding-right:20px;
+    
+  }
+  .transparentBtn{
+    border: none;
+    background-color: transparent;
+    outline: none;
+    
+  }
+
+
+  .transparentLogo{
+    vertical-align: top;
+    width:55px;
+    height:65px;
+    padding-bottom:15px;
+  }
+  .alignTop{
+    vertical-align: top;
+  }
+
+  .searchButton{
+    margin:5px;
+    height: 55px;
+    width:130px;
+    background-color:#005dc5;
+    color: #fff;
+    border-radius: 100px;
+  }
+  .custom_HA{
+    height: 55px;
+    margin:5px;
+    
+  }
+
+  .searchForm{
+    display:inline;
+  }
+
+/* LANDING PAGE 2 CSS END */
+
+
+.logo{
+    vertical-align: top;
+    width:200px;
+    height: 60px;
+}
+.homeLogo{
+    vertical-align: top;
+    width:55px;
+    height:45px;
+}
+.ownerlogo{
+    vertical-align: top;
+    width:400px;
+    height:280px;
+}
+.profileLogo{
+    width:100px;
+    height:120px;
+}
+.profileHeader{
+    text-align: center;
+    margin : 0px 40% 0px 40%;
+    background-color: fff;
+}
+
+.profileHeader H2{
+    font-weight: 500px;
+}
+.profileContainer{
+    margin-top:-50px;
+    background-color: white;
+}
+.profileBody{
+    margin:3% 10% 0px 10%;    
+}
+
+.drawBorder{
+    padding: 20px 0px 35px 25px;
+    margin-bottom:20px;
+    border: 0.5px solid grey;
+}
+
+.saveProfile{
+    margin:25px 0px 25px 0px;
+}
+
+.saveProfile button{
+    height: 50px;
+    background-color:#0067db;
+    border-radius: 30px;
+}
+
+.profileImage{
+    height:420px;
+    width:280px;
+    text-align: center;
+}
+
+.emailImage{
+    height:460px;
+    width:330px;
+}
+
+.alignLeft{
+    text-align: left;
+}
+
+.alignRight{
+    vertical-align: center;
+    text-align: right;
+}
+.alignCenter{
+    vertical-align: center;
+    text-align: center;
+    padding-right:10%;
+}
+
+.loginPage_bg{
+    background-color: #f4f4f4;
+    padding-top:50px;
+    padding-bottom: 50px;    
+}
+.navbar{
+    margin-bottom: 0px;
+}
+.navbarContainer{
+    min-height: 70px;
+    /* border-bottom: 0.1px solid; */
+    padding-left:11%; 
+    /* padding: 10px;
+    box-shadow: 5px 10px 18px #888888; */
+}
+.formHeading{
+    border-bottom: 1px solid #dbdbdb;
+    color:#888888;
+    text-align: left;
+}
+
+.formContainer{
+    background-color: #FFF;
+    padding:20px 20px 20px 20px;
+    border-radius: 5px;
+    border:1px solid #dbdbdb;
+    margin-bottom: 40px;
+}
+
+.form_element{
+    padding: 20px;
+    margin:20px 0px 20px 0px;
+    border-radius: 0;
+}
+
+.float_left{
+    float:left;
+}
+
+.btn_login{
+    background-color: #ff8a00;
+    vertical-align: middle;
+    padding:10px;
+    color:white;
+}
+
+.btn_fb{
+    background-color: #3B5998;
+    padding:10px;
+    color:white;
+}
+.btn_google{
+    background-color: lightgray;
+    padding:10px;
+    color:black;
+}
+
+.form_footer{
+    font-size: 10px;
+}
+
+/* landing page CSS starts here */
+
+.jumbotron {
+    position:relative;
+    padding-top:50px;
+    padding-bottom:50px;
+  }
+
+.img{
+    opacity: 1;
+    background: #000 url("./images/Villa.jpg") top center no-repeat;
+    min-height: 400px;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+    color: #fff;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:1;
+}
+
+.landingContainer {
+  position:relative;
+  z-index:2;
+}
+
+/* NAVBAR2 CSS */
+.navbarContainer2 *{
+    color:#ffffff;
+}
+
+.alignCenter{
+    vertical-align: top;
+    text-align: top;
+}
+
+.navbarContainer2{
+    position: relative;
+    z-index:3;
+    top:0;
+    left:0;
+    margin-top:-50px;
+}
+
+/* List Property Details */
+.listPropDiv{
+    background-color: #f4f4f4;
+}
+
+.propItems{
+    /* margin: 0px 0px 0px 5%; */
+}
+.ItemDetails{
+    /* margin: 0px 20% 0px 0px; */
+    background-color: #fff;
+    padding: 0px 0px 50px 0px;
+}
+
+.locationHeader{
+    padding-bottom: 10px;
+    border-bottom:1px solid black;
+}
+
+.listPropBody{
+    padding:0px 40px 40px 40px;
+}
+
+/* DISPLAY PROPERTY CSS*/
+.displayProperty{
+    background-color: #f4f4f4;
+
+}
+
+.displayItem{
+    background-color: #fff;
+    border-radius: 10px;
+    padding:0px 0px 0px 0px;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.1);
+}
+.displayItem *{
+    font-size: 15px;
+}
+.displayItem a{
+    font-size: 25px;
+}
+.displayPropertyImage{
+    margin-left:-6%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    height:200px;
+    width:200px;
+    object-fit: cover;
+}
+
+.pagination{
+    margin: 2%;
+}
+
+.marginAll{
+    margin: 2%;
+}
+
+.marginTopAndBottom{
+margin-top:30px;
+margin-bottom:30px;
+}
+
+/*Booking Details CSS */
+
+.bookingMethod input[type=radio]{
+    transform:scale(2);
+    margin-right:2%;
+  }
+
+.label-warning{
+    background-color:#ffec40;
+    color:black;
+    vertical-align: center;
+}
+
+.bookingMethod .form-check-label{
+    font-size: 25px;
+    margin-right:2%;
+}
+
+.bookingMethod .radioDesc{
+    margin-left:4%;
+    margin-bottom:8%;
+
+}
+
+.photosUpload .selectPhotos{
+    border: 1px dashed black;
+}
+
+.photosUpload .selectPhotos p{
+    font-size: 40px;
+}
+
+ul{
+    list-style: none;
+}
+
+.feeHeader{
+    padding: 25px 0px 25px 0px;
+    border-bottom:1px solid #888888;
+}
+
+/* Carousel */
+.carouselHA{
+padding:5% 5% 0px 5%;
+}
+
+/* BOOK PROPERTY CSS */
+.bookPropertyContainer{
+    background-color: #f4f4f4;
+    padding:2%;
+}
+.container-img{
+    object-fit: cover;
+    width: 100%;    
+    height: auto;
+  }
+  .container-img img {
+      object-fit: cover;
+    background-color: #fff;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.1);
+  } 
+
+  /******** BOOK PROPERTY CSS */
+  .bookPropertyForm {
+    background-color: #fff;
+    padding:40px 20px 40px 20px;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.1);
+  }
+  
+.blueButton{
+    padding: 15px;
+    background-color:#005dc5;
+    color: #fff;
+    border-radius: 100px;
+}
+
+.paddingAll{
+    padding:20px;
+}
+
+.borderDesc{
+    margin-top:60px;
+    padding:30px;
+    border:solid 0.5px black;
+}
+
+.shadowBg{
+    background-color: #fff;
+    padding:40px 20px 40px 20px;
+    -webkit-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.1);
+}
+
+/* FOOTER2 CSS */
+.footerImg{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+/* CAROUSEL */
+.theCarousel{
+    padding:5% 5% 0px 5%;
+}
+.theCarousel img{
+    height:100%;
+    width:auto;
+    border-radius: 5px;
+    transition: transform .5s; /*animation to zoom*/
+}
+
+.theCarousel img:hover {
+    border-radius: 5px;
+    transform: scale(1.05); /*zoom in */
+}
+
+/* view profile CSS */
+.profileIcon{
+    float:right;
+    height: 60%;
+    width: 60%;
+    border-radius: 50%; 
+}
+
+.borderMe{
+    border:1px solid black;
+}
+
+.floatCenter{
+    text-align:right;
+    padding:50px 11% 0px 0px;
+    font-size: 30px;
+}
+
+.paddingAbt{
+    font-size: 25px;
+    padding:22% 0% 0% 0%;
+}
+.paddingAb{
+    font-size: 18px;
+    padding:7% 0% 0% 0%;
+}
+.viewProfileContainer{
+    margin:0px 0px 8% 0px;
+}
+
+
+.inlineItem{
+    display: inline-block;
+
+}
