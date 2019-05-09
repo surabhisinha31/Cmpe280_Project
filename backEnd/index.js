@@ -7,6 +7,7 @@ var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
 var morgan = require('morgan');
+const request = require('request');
 
 var travelerSignUp = require('./apis/travelerSignUp.js');
 var travelerLogin = require('./apis/travelerLogin');
@@ -55,6 +56,25 @@ app.use('/', profile);
 app.use('/', viewProfile);
 app.use('/', ownerDashboard);
 app.use('/', bookingHistory);
+
+let verifiedIdentities = [];
+app.get('/request-proof/:ID',function (req,res) {
+    console.log("Request body passed in get blockchain API: ", req.params.ID);
+
+    request.post('http://54.149.239.59:3001/client/request-identity', {form:{email:req.params.ID,client:'homeaway'}});
+    console.log("sent");
+    res.status(200).json({
+          message : "Request for Proof sent successfully"
+      });
+});
+
+app.post('/receive-proof',function (req,res) {
+    console.log("Request body passed in blockchain API: ", req.body);
+    verifiedIdentities.push(req.body['email']);
+    res.status(200).json({
+          message : "Proof recieved successfully"
+      });
+});
 
 app.listen(ENV_VAR.PORT);
 console.log("Server running on port " + ENV_VAR.PORT);

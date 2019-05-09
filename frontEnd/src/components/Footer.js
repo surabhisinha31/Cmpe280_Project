@@ -13,7 +13,7 @@ class Footer extends Component{
                 <p>Use of this Web site constitutes acceptance of the Rentomojo.com Terms and Conditions and Privacy Policy.
 
 </p>
-                <p>©2018 HomeAway. All rights reserved.
+                <p>©2018 Rentomojo. All rights reserved.
 
 </p>
                 </center>

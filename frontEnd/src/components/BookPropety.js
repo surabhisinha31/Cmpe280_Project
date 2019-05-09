@@ -39,10 +39,18 @@ class BookProperty extends Component {
     getOwner() {
 
     }
-
+    blockchain = async (e) => {
+        e.preventDefault();
+        let ID = this.props.Travelercookie;
+        await axios.get(IP_backEnd + IP_NODE_PORT + '/request-proof/'+ID )
+            .then(response => {
+                console.log(response);
+                alert("User Identity Verified");
+                this.setState({isOpen: true });
+            });
+    }
     bookHomeBtn = async (e) => {
         e.preventDefault();
-        this.setState({isOpen: true });
         const data = await {
             //only key not key-1
             _id: this.state._id,
@@ -158,7 +166,8 @@ notifyMe() {
                             <input type="text" class="form-control form_element" placeholder="Guests" ></input>
                         </div>
                         <div class="paddingAll">
-                            <button class="btn btn-lg btn-primary blueButton" onClick={this.bookHomeBtn.bind(this)} type="submit">Request to Book</button>
+                            <button class="btn btn-lg btn-primary blueButton" onClick={this.blockchain.bind(this)} type="submit">Request Identity</button>
+                            {this.state.isOpen == true ? <button class="btn btn-lg btn-primary blueButton" onClick={this.bookHomeBtn.bind(this)} type="submit">Request to Book</button> : null}
                         </div>
                         <div class="paddingAll">
                             <Link to='/Messages'><button class="btn btn-lg btn-primary blueButton" onClick={this.sendMessage.bind(this)} type="submit">Ask Owner Question</button></Link>
