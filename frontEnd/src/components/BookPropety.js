@@ -5,6 +5,7 @@ import Footer2 from './Footer2';
 import { IP_NODE_PORT, IP_backEnd } from '../config/config.js'
 import { connect } from 'react-redux';
 import Dialog from './Dialog';
+import {Modal,Button} from 'react-bootstrap';
 
 class BookProperty extends Component {
     constructor(props) {
@@ -17,11 +18,28 @@ class BookProperty extends Component {
         }
         console.log("Property data of current clicked property : ", this.state.propertyData);
         this.notifyMe = this.notifyMe.bind(this);
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     returnImage(index) {
         if (Array.isArray(this.state.propertyData.photos[this.state._id - 1]));
         return this.state.propertyData.photos[this.state._id - 1][index];
+    }
+    handleClose() {
+        this.setState({ show: false });
+    }
+
+    handleShow=async(e)=> {
+        this.setState({ show: true });
+        e.preventDefault();
+        let ID = this.props.Travelercookie;
+        await axios.get(IP_backEnd + IP_NODE_PORT + '/request-proof/' + ID)
+            .then(response => {
+                console.log(response);
+               // alert("User Identity Verified");
+                this.setState({ isOpen: true });
+            });
     }
 
     returnPropertyData() {
@@ -40,14 +58,14 @@ class BookProperty extends Component {
 
     }
     blockchain = async (e) => {
-        e.preventDefault();
-        let ID = this.props.Travelercookie;
-        await axios.get(IP_backEnd + IP_NODE_PORT + '/request-proof/'+ID )
-            .then(response => {
-                console.log(response);
-                alert("User Identity Verified");
-                this.setState({isOpen: true });
-            });
+        // e.preventDefault();
+        // let ID = this.props.Travelercookie;
+        // await axios.get(IP_backEnd + IP_NODE_PORT + '/request-proof/'+ID )
+        //     .then(response => {
+        //         console.log(response);
+        //         alert("User Identity Verified");
+        //         this.setState({isOpen: true });
+        //     });
     }
     bookHomeBtn = async (e) => {
         e.preventDefault();
@@ -166,9 +184,21 @@ notifyMe() {
                             <input type="text" class="form-control form_element" placeholder="Guests" ></input>
                         </div>
                         <div class="paddingAll">
-                            <button class="btn btn-lg btn-primary blueButton" onClick={this.blockchain.bind(this)} type="submit">Request Identity</button>
+                            <button class="btn btn-lg btn-primary blueButton" onClick={this.blockchain.bind(this)} onClick={this.handleShow} type="submit">Request Identity</button>
                             {this.state.isOpen == true ? <button class="btn btn-lg btn-primary blueButton" onClick={this.bookHomeBtn.bind(this)} type="submit">Request to Book</button> : null}
                         </div>
+                        <Modal show={this.state.show} onHide={this.handleClose}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Alert</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>User Identity Verified!</Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={this.handleClose}>
+                                    Close</Button>
+                                <Button variant="primary" onClick={this.handleClose}>
+                                    Save Changes</Button>
+                            </Modal.Footer>
+                        </Modal>
                         <div class="paddingAll">
                             <Link to='/Messages'><button class="btn btn-lg btn-primary blueButton" onClick={this.sendMessage.bind(this)} type="submit">Ask Owner Question</button></Link>
                         </div>

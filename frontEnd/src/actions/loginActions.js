@@ -27,6 +27,7 @@ export const submitLogin = (email, password) => dispatch => {
             })
         })
         .catch((error) => {
+          if(error.response){
             console.log("Action Catch : ", error.response.status);
             dispatch({
                 //ERROR 400 status
@@ -34,6 +35,10 @@ export const submitLogin = (email, password) => dispatch => {
                 payload: error.response.status,
                 Travelercookie: ""
             })
+          }else{
+            alert("something went wrong !")
+          }
+
         })
 }
 
@@ -44,4 +49,4 @@ export const travelerSignout = () => dispatch => {
         payload: false,
         Travelercookie: ""
     })
-} 
+}

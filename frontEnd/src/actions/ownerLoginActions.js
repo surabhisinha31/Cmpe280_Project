@@ -26,6 +26,7 @@ export const ownerSubmitLogin = (email, password) => dispatch => {
             })
         })
         .catch((error) => {
+          if(error.response){
             console.log("Action Catch : ", error.response.status);
             dispatch({
                 //ERROR 400 status
@@ -33,6 +34,10 @@ export const ownerSubmitLogin = (email, password) => dispatch => {
                 payload: error.response.status,
                 Ownercookie:""
             })
+          }else{
+            alert("something went wrong !")
+          }
+
         })
 
 }
@@ -44,4 +49,4 @@ export const ownerSignout = () => dispatch => {
         payload: false,
         Ownercookie:""
     })
-} 
+}
