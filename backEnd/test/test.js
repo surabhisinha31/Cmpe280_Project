@@ -7,10 +7,6 @@ var expect = chai.expect;
 
 chai.use(chaiHttp);
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 68c8ea47cd8de67b580ffccd3f4e5392ea061c9a
 it("Should check if Chat Message are being returned", function (done) {
     chai.request('http://127.0.0.1:3001')
         .get('/chatmessage/5bd90ef9d07709044cba56b0')
@@ -25,7 +21,7 @@ it("Should check if Chat Message are being returned", function (done) {
 
 it("Should check if Booked Properties is being returned", function (done) {
     chai.request('http://127.0.0.1:3001')
-        .post('/bookedproperties/lisa@gmail.com')
+        .post('/bookedproperties/surabhisinha3108@gmail.com')
         .end(function (err, res) {
             should.not.exist(err)
             should.exist(res.body);
@@ -45,7 +41,7 @@ it("Should check Requested Property is returned", function (done) {
 
 it("Should check for Profile if it is returned", function (done) {
     chai.request('http://127.0.0.1:3001')
-        .get('/profile/jane@gmail.com')
+        .get('/profile/surabhisinha3108@gmail.com')
         .end(function (err, res) {
             should.not.exist(err)
             should.exist(res.body);
@@ -56,7 +52,7 @@ it("Should check for Profile if it is returned", function (done) {
 
 it("Should check for property listing if it is returned", function (done) {
     chai.request('http://127.0.0.1:3001')
-        .get('/propertylisting/jill@gmail.com')
+        .get('/propertylisting/surabhisinha3108@gmail.com')
         .end(function (err, res) {
             should.not.exist(err)
             should.exist(res.body);
