@@ -51,6 +51,16 @@ class DisplayProperty extends Component {
     }
 
     componentDidMount() {
+      this.setState({
+        pageNo: 1,
+        start: 1,
+        end: incVal,
+        id: 1,
+        propertyData: [],
+        _id: ""
+      })
+      propertiesss = [];
+
         this.downloadTenProperties();
         this.getTotalPropertyCount();
     }
@@ -194,4 +204,3 @@ class DisplayProperty extends Component {
     }
 }
 export default DisplayProperty;
-
