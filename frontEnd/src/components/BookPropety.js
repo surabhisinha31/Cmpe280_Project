@@ -57,16 +57,6 @@ class BookProperty extends Component {
     getOwner() {
 
     }
-    blockchain = async (e) => {
-        // e.preventDefault();
-        // let ID = this.props.Travelercookie;
-        // await axios.get(IP_backEnd + IP_NODE_PORT + '/request-proof/'+ID )
-        //     .then(response => {
-        //         console.log(response);
-        //         alert("User Identity Verified");
-        //         this.setState({isOpen: true });
-        //     });
-    }
     bookHomeBtn = async (e) => {
         e.preventDefault();
         const data = await {
