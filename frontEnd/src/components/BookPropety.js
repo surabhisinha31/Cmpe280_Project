@@ -174,7 +174,7 @@ notifyMe() {
                             <input type="text" class="form-control form_element" placeholder="Guests" ></input>
                         </div>
                         <div class="paddingAll">
-                            <button class="btn btn-lg btn-primary blueButton" onClick={this.blockchain.bind(this)} onClick={this.handleShow} type="submit">Request Identity</button>
+                            <button class="btn btn-lg btn-primary blueButton" onClick={this.handleShow} type="submit">Request Identity</button>
                             {this.state.isOpen == true ? <button class="btn btn-lg btn-primary blueButton" onClick={this.bookHomeBtn.bind(this)} type="submit">Request to Book</button> : null}
                         </div>
                         <Modal show={this.state.show} onHide={this.handleClose}>
