@@ -68,13 +68,80 @@ app.get('/request-proof/:ID',function (req,res) {
       });
 });
 
+
+const mongoClient = require('mongodb').MongoClient;
+
+
 app.post('/receive-proof',function (req,res) {
     console.log("Request body passed in blockchain API: ", req.body);
     verifiedIdentities.push(req.body['email']);
-    res.status(200).json({
-          message : "Proof recieved successfully"
-      });
+
+    mongoClient.connect(ENV_VAR.IP_MONGODB + ENV_VAR.IP_PORT_MONGO, (err, client) => {
+        if (err) {
+            console.log("error connecting to mongodb");
+        } else {
+            console.log("connection successful");
+            const db = client.db('homeaway');
+            db.collection('verifiedList').updateOne(
+                { email: req.body.email },
+                {
+                    $set: {
+                        email: req.body.email
+                    }
+                },
+                { upsert: true }, (err, result) => {
+                    if (err) {
+                        console.log("query error");
+                        res.writeHead(400, {
+                            'Content-Type': 'text/plain'
+                        })
+                        res.end("Query Error");
+                    } else {
+                        console.log("query success");
+                        res.writeHead(200, {
+                            'Content-Type': 'text/plain'
+                        })
+                        res.end("user saved in verified list");
+                    }
+                })
+            client.close();
+        }
+    })
 });
+
+app.post('/check_proof',function(req,res){
+    console.log("check for this email",req.email)
+    mongoClient.connect(ENV_VAR.IP_MONGODB + ENV_VAR.IP_PORT_MONGO, (err, client) => {
+        if (err) {
+            console.log("error connecting to mongodb");
+        } else {
+            console.log("connection successful");
+            const db = client.db('homeaway');
+            db.collection('verifiedList').find({
+            })
+                .toArray()
+                .then((result) => {
+                    console.log("booking details downloaded", result);
+                    if (result.length > 0) {
+                        res.writeHead(200, {
+                            'Content-Type': 'text/plain'
+                        })
+                        res.end(JSON.stringify(result));
+                    } else {
+                        res.writeHead(400, {
+                            'Content-Type': 'text/plain'
+                        })
+                        console.log("No details found");
+                        res.end("No details found");
+                    }
+                }), (err) => {
+                    console.log("Unable to fetch Documents");
+                }
+            client.close();
+        }
+    })
+
+})
 
 app.listen(ENV_VAR.PORT);
 console.log("Server running on port " + ENV_VAR.PORT);
