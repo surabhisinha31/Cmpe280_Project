@@ -28,7 +28,7 @@ class TravelerInbox extends Component {
     const headers = {
         'Accept': 'application/json'
     };
-    fetch(`http://localhost:3001/fetchTravelermail`, {
+    fetch(`http://54.202.239.145:3001/fetchTravelermail`, {
             method: 'POST',
             credentials:'include',
             mode: 'cors',

@@ -31,7 +31,7 @@ class Inbox extends Component {
     const headers = {
         'Accept': 'application/json'
     };
-    fetch(`http://localhost:3001/fetchmail`, {
+    fetch(`http://54.202.239.145:3001/fetchmail`, {
             method: 'POST',
             credentials:'include',
             mode: 'cors',
