@@ -14,12 +14,14 @@ class BookProperty extends Component {
         this.state = {
             _id: this.props.location.state._id,
             isOpen: false,
+            isVerified : false,
             propertyData: this.props.location.state.propertyData[this.props.location.state._id - ((this.props.location.state.pageNo - 1) * 5) - 1][0]
         }
         console.log("Property data of current clicked property : ", this.state.propertyData);
         this.notifyMe = this.notifyMe.bind(this);
         this.handleShow = this.handleShow.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.handleVerification = this.handleVerification.bind(this);
     }
 
     returnImage(index) {
@@ -33,12 +35,23 @@ class BookProperty extends Component {
     handleShow=async(e)=> {
         this.setState({ show: true });
         e.preventDefault();
+        let email = this.props.Travelercookie;
+        await axios.get(IP_backEnd + IP_NODE_PORT + '/check_proof/' + email)
+            .then(response => {
+                console.log(response);
+               // alert("User Identity Verified");
+                this.setState({ isOpen: true });
+            });
+    }
+    handleVerification = async(e)=> {
+        this.setState({ show: true });
+        e.preventDefault();
         let ID = this.props.Travelercookie;
         await axios.get(IP_backEnd + IP_NODE_PORT + '/request-proof/' + ID)
             .then(response => {
                 console.log(response);
                // alert("User Identity Verified");
-                this.setState({ isOpen: true });
+                this.setState({ isVerified: true });
             });
     }
 
@@ -175,7 +188,9 @@ notifyMe() {
                         </div>
                         <div class="paddingAll">
                             <button class="btn btn-lg btn-primary blueButton" onClick={this.handleShow} type="submit">Request Identity</button>
-                            {this.state.isOpen == true ? <button class="btn btn-lg btn-primary blueButton" onClick={this.bookHomeBtn.bind(this)} type="submit">Request to Book</button> : null}
+                            {this.state.isVerified == true ? <button class="btn btn-lg btn-primary blueButton" onClick={this.bookHomeBtn.bind(this)} type="submit">Request to Book</button> :
+                              <button class="btn btn-lg btn-primary blueButton" onClick={this.handleVerification} type="submit">Check Status</button>
+                            }
                         </div>
                         <Modal show={this.state.show} onHide={this.handleClose}>
                             <Modal.Header closeButton>
