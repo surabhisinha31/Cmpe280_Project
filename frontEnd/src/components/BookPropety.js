@@ -48,6 +48,7 @@ class BookProperty extends Component {
                     for(let i of response.data){
                       if(i.email==this.props.Travelercookie){
                         //enable check closeButton
+                        console.log("Email verified: ", i.email);
                         this.setState({
                           isVerified: true
                         })
