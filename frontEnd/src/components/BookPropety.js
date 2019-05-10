@@ -32,18 +32,34 @@ class BookProperty extends Component {
         this.setState({ show: false });
     }
 
-    handleShow=async(e)=> {
+    handleVerification =async(e)=> {
         this.setState({ show: true });
         e.preventDefault();
         let email = this.props.Travelercookie;
         await axios.get(IP_backEnd + IP_NODE_PORT + '/check_proof/' + email)
             .then(response => {
                 console.log(response);
-               // alert("User Identity Verified");
-                this.setState({ isOpen: true });
+
+                if(response.data){
+                  if(response.data.length>=1){
+                    for(let i of response.data){
+                      if(i.email==this.props.Travelercookie){
+                        //enable check closeButton
+                        this.setState({
+                          isVerified: true
+                        })
+                        break;
+                      }
+                    }
+                  }
+                }
+               //alert user not verified.
+
+              
             });
     }
-    handleVerification = async(e)=> {
+
+    handleShow = async(e)=> {
         this.setState({ show: true });
         e.preventDefault();
         let ID = this.props.Travelercookie;
@@ -51,7 +67,7 @@ class BookProperty extends Component {
             .then(response => {
                 console.log(response);
                // alert("User Identity Verified");
-                this.setState({ isVerified: true });
+                this.setState({ isOpen: true });
             });
     }
 
