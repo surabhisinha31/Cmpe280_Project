@@ -12,6 +12,7 @@ class BookProperty extends Component {
         super(props);
         console.log("Inside Book property", this.props.location.state);
         this.state = {
+          modalmessage:"",
             _id: this.props.location.state._id,
             isOpen: false,
             isVerified : false,
@@ -33,7 +34,9 @@ class BookProperty extends Component {
     }
 
     handleVerification =async(e)=> {
-        this.setState({ show: true });
+        this.setState({ show: true,
+          modalmessage:"User Identity Verified!"
+         });
         e.preventDefault();
         let email = this.props.Travelercookie;
         await axios.get(IP_backEnd + IP_NODE_PORT + '/check_proof/' + email)
@@ -55,12 +58,13 @@ class BookProperty extends Component {
                 }
                //alert user not verified.
 
-              
+
             });
     }
 
     handleShow = async(e)=> {
-        this.setState({ show: true });
+        this.setState({ show: true,
+        modalmessage:"User Identity Requested!" });
         e.preventDefault();
         let ID = this.props.Travelercookie;
         await axios.get(IP_backEnd + IP_NODE_PORT + '/request-proof/' + ID)
@@ -212,7 +216,7 @@ notifyMe() {
                             <Modal.Header closeButton>
                                 <Modal.Title>Alert</Modal.Title>
                             </Modal.Header>
-                            <Modal.Body>User Identity Verified!</Modal.Body>
+                            <Modal.Body>{this.state.modalmessage}</Modal.Body>
                             <Modal.Footer>
                                 <Button variant="secondary" onClick={this.handleClose}>
                                     Close</Button>
